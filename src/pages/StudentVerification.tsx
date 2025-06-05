@@ -1,8 +1,8 @@
 import { QRCodeSVG } from 'qrcode.react';
 
 const StudentVerification = () => {
-  // Use the Vercel deployment URL
-  const verificationUrl = 'https://test11-blond.vercel.app/verify-student';
+  // Use the new Vercel deployment URL
+  const verificationUrl = 'https://test11-aj72.vercel.app/verify-student';
 
   return (
     <div className="min-h-screen bg-gray-100 p-4">
