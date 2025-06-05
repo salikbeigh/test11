@@ -36,7 +36,7 @@ const VerifyStudent = () => {
         const studentData = studentDoc.data() as StudentData;
         setMessage(`✅ Registered Student!\nName: ${studentData.name}`);
       } else {
-        setMessage('❌ Not registered in the system');
+        setMessage('❌ Student not registered');
       }
     } catch (err) {
       console.error('Error checking registration:', err);
