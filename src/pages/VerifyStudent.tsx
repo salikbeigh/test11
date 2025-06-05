@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { db, getDoc, doc } from '../firebaseConfig';
+import { db, getDoc, doc, setDoc, serverTimestamp } from '../firebaseConfig';
 
 interface StudentData {
   name: string;
@@ -10,6 +10,13 @@ interface StudentData {
   stop?: string;
   parentName?: string;
   parentPhone?: string;
+}
+
+interface BoardingRecord {
+  studentName: string;
+  enrollmentId: string;
+  timestamp: any;
+  date: string;
 }
 
 const VerifyStudent = () => {
@@ -34,6 +41,20 @@ const VerifyStudent = () => {
 
       if (studentDoc.exists()) {
         const studentData = studentDoc.data() as StudentData;
+        
+        // Create boarding record
+        const today = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
+        const boardingRecord: BoardingRecord = {
+          studentName: studentData.name,
+          enrollmentId: enrollmentId.trim(),
+          timestamp: serverTimestamp(),
+          date: today
+        };
+
+        // Store in boarding_records collection with a unique ID
+        const boardingRef = doc(db, 'boarding_records', `${enrollmentId.trim()}_${Date.now()}`);
+        await setDoc(boardingRef, boardingRecord);
+
         setMessage(`✅ Registered Student!\nName: ${studentData.name}`);
       } else {
         setMessage('❌ Student not registered');
