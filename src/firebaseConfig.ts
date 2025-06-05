@@ -31,7 +31,7 @@ const analytics = getAnalytics(app);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-// Enable offline persistence
+// Enable offline persistence with error handling
 enableIndexedDbPersistence(db)
   .then(() => {
     console.log("Firestore persistence enabled.");
