@@ -51,7 +51,7 @@ const VerifyStudent = () => {
       <div className="max-w-md mx-auto">
         {/* Header Section */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-blue-600 mb-2 tracking-tight">SpeckT</h1>
+          {/* <h1 className="text-4xl font-bold text-blue-600 mb-2 tracking-tight">SpeckT</h1> */}
           <h2 className="text-2xl font-semibold text-gray-800">Student Verification</h2>
           <p className="text-gray-600 mt-2">Enter your enrollment ID to verify your registration</p>
         </div>
