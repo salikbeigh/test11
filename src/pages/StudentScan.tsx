@@ -30,7 +30,7 @@ const StudentScan = () => {
               const studentData = studentDoc.data();
               setMessage(`✅ Registered Student!\nName: ${studentData.name}\nClass: ${studentData.class || 'N/A'}`);
             } else {
-              setMessage('❌ Not registered in the system');
+              setMessage('❌ Student not registered');
             }
           } catch (error) {
             setMessage('Error verifying enrollment');
