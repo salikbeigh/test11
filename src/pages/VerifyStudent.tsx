@@ -23,18 +23,23 @@ const VerifyStudent = () => {
     setMessage('');
 
     try {
+      console.log('Checking enrollment ID:', enrollmentId);
       const studentRef = doc(db, 'students', enrollmentId);
+      console.log('Student reference created');
+      
       const studentDoc = await getDoc(studentRef);
+      console.log('Document fetched:', studentDoc.exists() ? 'exists' : 'does not exist');
 
       if (studentDoc.exists()) {
         const studentData = studentDoc.data() as StudentData;
+        console.log('Student data:', studentData);
         setMessage(`✅ Registered Student!\nName: ${studentData.name}`);
       } else {
         setMessage('❌ Not registered in the system');
       }
     } catch (err) {
       console.error('Error checking registration:', err);
-      setMessage('Error checking registration status');
+      setMessage('❌ Error: Please try again later');
     } finally {
       setIsLoading(false);
     }
