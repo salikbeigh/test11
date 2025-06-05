@@ -28,7 +28,7 @@ const VerifyStudent = () => {
 
       if (studentDoc.exists()) {
         const studentData = studentDoc.data() as StudentData;
-        setMessage(`✅ Registered Student!\nName: ${studentData.name}\nClass: ${studentData.class || 'N/A'}`);
+        setMessage(`✅ Registered Student!\nName: ${studentData.name}`);
       } else {
         setMessage('❌ Not registered in the system');
       }

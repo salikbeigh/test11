@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import DriverPortal from "./pages/DriverPortal";
 import StudentVerification from "./pages/StudentVerification";
 import VerifyStudent from "./pages/VerifyStudent";
+import AddStudent from "./pages/AddStudent";
 import { ClerkProvider } from "@clerk/clerk-react";
 
 // Replace with your Clerk publishable key
@@ -25,6 +26,7 @@ export default function App() {
             <Route path="/driver-portal" element={<DriverPortal />} />
             <Route path="/student-verification" element={<StudentVerification />} />
             <Route path="/verify-student" element={<VerifyStudent />} />
+            <Route path="/add-student" element={<AddStudent />} />
           </Routes>
         </Layout>
       </Router>
